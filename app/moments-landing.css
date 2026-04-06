@@ -1,0 +1,636 @@
+/* Moments & Portraits landing — scoped under .moments-landing */
+.moments-landing {
+  --black: #faf9f6;
+  --dark: #f2f0ec;
+  --warm: #e8e5df;
+  --cream: #1b1916;
+  --muted: rgba(27, 25, 22, 0.52);
+  --dimmed: rgba(27, 25, 22, 0.3);
+  --gold: #9a7a35;
+  --gold-dim: rgba(154, 122, 53, 0.14);
+  --nav-h: 88px;
+  min-height: 100%;
+  background: var(--black);
+  color: var(--cream);
+  font-family: var(--font-jost), sans-serif;
+  font-weight: 300;
+}
+.moments-landing * {
+  box-sizing: border-box;
+}
+
+.moments-landing nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: transparent;
+}
+.moments-landing .brand-mark {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.moments-landing .brand-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.moments-landing .nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.moments-landing .nav-links a {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.moments-landing .nav-links a:hover {
+  color: var(--cream);
+}
+.moments-landing .nav-cta {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid rgba(154, 122, 53, 0.45);
+  padding: 10px 22px;
+  border-radius: 1px;
+  transition: background 0.2s, color 0.2s;
+}
+.moments-landing .nav-cta:hover {
+  background: var(--gold);
+  color: var(--cream);
+}
+.moments-landing .hero {
+  height: 100vh;
+  margin-top: calc(-1 * var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.moments-landing .hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--dark);
+  background-image: linear-gradient(
+      to top,
+      rgba(250, 249, 246, 0.98) 0%,
+      rgba(250, 249, 246, 0.82) 22%,
+      rgba(250, 249, 246, 0.35) 50%,
+      rgba(250, 249, 246, 0.15) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(250, 249, 246, 0.92) 0%,
+      rgba(250, 249, 246, 0.45) 42%,
+      transparent 65%
+    ),
+    url("/images/herobg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.moments-landing .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+.moments-landing .hero-tag {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.moments-landing .hero-tag::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+.moments-landing .hero h1 {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+.moments-landing .hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.moments-landing .hero-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 0 40px;
+}
+.moments-landing .hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.moments-landing .btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--cream);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 15px 32px;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: opacity 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.moments-landing .btn-gold:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+.moments-landing .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.moments-landing .btn-ghost:hover {
+  color: var(--cream);
+}
+.moments-landing .btn-ghost svg {
+  transition: transform 0.2s;
+}
+.moments-landing .btn-ghost:hover svg {
+  transform: translateX(4px);
+}
+
+.moments-landing .about-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid rgba(27, 25, 22, 0.08);
+  border-bottom: 1px solid rgba(27, 25, 22, 0.08);
+}
+.moments-landing .strip-item {
+  padding: 36px 48px;
+  border-right: 1px solid rgba(27, 25, 22, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.moments-landing .strip-item:last-child {
+  border-right: none;
+}
+.moments-landing .strip-num {
+  font-family: var(--font-playfair), serif;
+  font-size: 42px;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+.moments-landing .strip-label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+.moments-landing .strip-label strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 2px;
+}
+.moments-landing .services {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.moments-landing .section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  gap: 40px;
+}
+.moments-landing .section-tag {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 12px;
+}
+.moments-landing .section-title {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0;
+}
+.moments-landing .section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.moments-landing .section-desc {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 300px;
+  line-height: 1.7;
+  text-align: right;
+  margin: 0;
+}
+.moments-landing .services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.moments-landing .service-card {
+  background: var(--dark);
+  padding: 44px 36px;
+  border: 1px solid rgba(27, 25, 22, 0.07);
+  transition: background 0.3s, border-color 0.3s;
+  cursor: default;
+}
+.moments-landing .service-card:hover {
+  background: var(--warm);
+  border-color: rgba(154, 122, 53, 0.28);
+}
+.moments-landing .service-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(154, 122, 53, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.moments-landing .service-card h3 {
+  font-family: var(--font-playfair), serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+.moments-landing .service-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.moments-landing .service-includes {
+  list-style: none;
+  padding: 0;
+  margin: -8px 0 20px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.moments-landing .service-includes li {
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 7px;
+}
+.moments-landing .service-includes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+.moments-landing .service-free {
+  font-weight: 500;
+  color: var(--cream);
+}
+.moments-landing .service-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: -6px 0 18px;
+  font-style: italic;
+}
+.moments-landing .service-price {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-top: 1px solid rgba(154, 122, 53, 0.2);
+  padding-top: 20px;
+}
+
+.moments-landing .gallery {
+  padding: 0 48px 100px;
+}
+.moments-landing .gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 260px 260px;
+  gap: 4px;
+}
+.moments-landing .gallery-item {
+  overflow: hidden;
+  border-radius: 1px;
+  position: relative;
+  min-height: 0;
+}
+.moments-landing .gallery-item:first-child {
+  grid-row: 1 / 3;
+}
+.moments-landing .gallery-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: block;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+.moments-landing .gallery-item:first-child .gallery-photo {
+  min-height: 0;
+  height: 100%;
+}
+.moments-landing .gallery-item:hover .gallery-photo {
+  transform: scale(1.04);
+}
+.moments-landing .gallery-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(27, 25, 22, 0.45) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.moments-landing .gallery-item:hover .gallery-photo::after {
+  opacity: 1;
+}
+.moments-landing .gallery-section-header {
+  padding: 0 0 56px;
+}
+
+.moments-landing .booking {
+  background: var(--dark);
+  border-top: 1px solid rgba(27, 25, 22, 0.07);
+  border-bottom: 1px solid rgba(27, 25, 22, 0.07);
+  padding: 100px 48px;
+}
+.moments-landing .booking-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.moments-landing .booking-inner .section-tag {
+  margin-bottom: 12px;
+}
+.moments-landing .booking-inner h2 {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+.moments-landing .booking-inner h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.moments-landing .booking-inner > p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+.moments-landing .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.moments-landing .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.moments-landing .form-group.full {
+  grid-column: 1 / -1;
+}
+.moments-landing .form-group label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dimmed);
+}
+.moments-landing .form-group input,
+.moments-landing .form-group select,
+.moments-landing .form-group textarea {
+  background: #ffffff;
+  border: 1px solid rgba(27, 25, 22, 0.12);
+  color: var(--cream);
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 14px 16px;
+  border-radius: 1px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.moments-landing .form-group input::placeholder,
+.moments-landing .form-group textarea::placeholder {
+  color: var(--dimmed);
+}
+.moments-landing .form-group input:focus,
+.moments-landing .form-group select:focus,
+.moments-landing .form-group textarea:focus {
+  border-color: rgba(154, 122, 53, 0.45);
+  background: #fffdf9;
+}
+.moments-landing .form-group select option {
+  background: #ffffff;
+  color: var(--cream);
+}
+.moments-landing .form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.moments-landing .form-submit {
+  margin-top: 24px;
+}
+.moments-landing .form-submit .btn-gold {
+  width: 100%;
+  text-align: center;
+  padding: 18px;
+  font-size: 13px;
+}
+
+.moments-landing footer {
+  padding: 60px 48px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  border-top: 1px solid rgba(27, 25, 22, 0.07);
+}
+.moments-landing .footer-brand .brand-logo {
+  height: 52px;
+  margin-bottom: 16px;
+}
+.moments-landing .footer-brand p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 260px;
+  margin: 0;
+}
+.moments-landing .footer-col h4 {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 20px;
+}
+.moments-landing .footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.moments-landing .footer-col ul a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.moments-landing .footer-col ul a:hover {
+  color: var(--cream);
+}
+.moments-landing .footer-bottom {
+  border-top: 1px solid rgba(27, 25, 22, 0.07);
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.moments-landing .footer-bottom p {
+  font-size: 11px;
+  color: var(--dimmed);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+.moments-landing .footer-bottom a {
+  color: inherit;
+  text-decoration: none;
+}
+.moments-landing .footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+.moments-landing .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.moments-landing .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .moments-landing {
+    --nav-h: 80px;
+  }
+  .moments-landing nav {
+    padding: 20px 24px;
+  }
+  .moments-landing .nav-links {
+    display: none;
+  }
+  .moments-landing .hero {
+    padding: 0 24px 60px;
+  }
+  .moments-landing .about-strip {
+    grid-template-columns: 1fr;
+  }
+  .moments-landing .strip-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(27, 25, 22, 0.08);
+  }
+  .moments-landing .services {
+    padding: 60px 24px;
+  }
+  .moments-landing .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .moments-landing .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .moments-landing .section-desc {
+    text-align: left;
+  }
+  .moments-landing .gallery {
+    padding: 0 24px 60px;
+  }
+  .moments-landing .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .moments-landing .gallery-item:first-child {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+  .moments-landing .gallery-photo {
+    min-height: 200px;
+  }
+  .moments-landing .gallery-item:first-child .gallery-photo {
+    min-height: 280px;
+  }
+  .moments-landing .booking {
+    padding: 60px 24px;
+  }
+  .moments-landing .form-row {
+    grid-template-columns: 1fr;
+  }
+  .moments-landing footer {
+    grid-template-columns: 1fr;
+    padding: 48px 24px 24px;
+  }
+  .moments-landing .footer-bottom {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
